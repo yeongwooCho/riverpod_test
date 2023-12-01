@@ -1,6 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_test/model/shopping_item_model.dart';
 
+final selectProvider = StateNotifierProvider<SelectNotifier, ShoppingItemModel>(
+  (ref) => SelectNotifier(),
+);
+
 class SelectNotifier extends StateNotifier<ShoppingItemModel> {
   SelectNotifier()
       : super(ShoppingItemModel(
