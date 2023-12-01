@@ -11,20 +11,14 @@ class SelectNotifier extends StateNotifier<ShoppingItemModel> {
         ));
 
   void toggleHasBought() {
-    state = ShoppingItemModel(
-      name: state.name,
-      quantity: state.quantity,
+    state = state.copyWith(
       hasBought: !state.hasBought,
-      isSpicy: state.isSpicy,
     );
   }
 
   void toggleIsSpicy() {
-    state = ShoppingItemModel(
-      name: state.name,
-      quantity: state.quantity,
-      hasBought: state.hasBought,
-      isSpicy: !state.isSpicy,
+    state = state.copyWith(
+      hasBought: !state.isSpicy,
     );
   }
 }
