@@ -22,7 +22,7 @@ class SelectNotifier extends StateNotifier<ShoppingItemModel> {
 
   void toggleIsSpicy() {
     state = state.copyWith(
-      hasBought: !state.isSpicy,
+      isSpicy: !state.isSpicy,
     );
   }
 }
