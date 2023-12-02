@@ -8,3 +8,10 @@ final _testProvider = Provider<String>((ref) => 'Hello Code Generation');
 String gState(GStateRef ref) {
   return 'Hello Code Generation';
 }
+
+@riverpod
+Future<int> gStateFuture(GStateFutureRef ref) async {
+  await Future.delayed(Duration(seconds: 3));
+
+  return 10;
+}
