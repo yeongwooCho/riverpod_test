@@ -13,4 +13,9 @@ class Logger extends ProviderObserver {
       ProviderBase provider, Object? value, ProviderContainer container) {
     print('[Provider Added] provider: $provider / value: $value');
   }
+
+  @override
+  void didDisposeProvider(ProviderBase provider, ProviderContainer containers) {
+    print('[Provider Disposed] provider: $provider');
+  }
 }
