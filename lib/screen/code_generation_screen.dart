@@ -12,6 +12,7 @@ class CodeGenerationScreen extends ConsumerWidget {
 
     final state1 = ref.watch(gStateProvider);
     final state2 = ref.watch(gStateFutureProvider);
+    final state3 = ref.watch(gStateFuture2Provider);
 
     return DefaultLayout(
       title: 'CodeGenerationScreen',
@@ -29,6 +30,23 @@ class CodeGenerationScreen extends ConsumerWidget {
           ),
           const SizedBox(height: 16.0),
           state2.when(
+            data: (data) {
+              return Text(
+                data.toString(),
+                style: textStyle,
+              );
+            },
+            error: (err, asdf) {
+              return Text(err.toString());
+            },
+            loading: () {
+              return Center(
+                child: const CircularProgressIndicator(),
+              );
+            },
+          ),
+          const SizedBox(height: 16.0),
+          state3.when(
             data: (data) {
               return Text(
                 data.toString(),
