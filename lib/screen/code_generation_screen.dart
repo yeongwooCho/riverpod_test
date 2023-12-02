@@ -11,14 +11,38 @@ class CodeGenerationScreen extends ConsumerWidget {
     const textStyle = TextStyle(fontSize: 24.0);
 
     final state1 = ref.watch(gStateProvider);
+    final state2 = ref.watch(gStateFutureProvider);
 
     return DefaultLayout(
       title: 'CodeGenerationScreen',
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             state1,
             style: textStyle,
+          ),
+          const SizedBox(height: 16.0),
+          Text(
+            state2.toString(),
+            style: textStyle,
+          ),
+          const SizedBox(height: 16.0),
+          state2.when(
+            data: (data) {
+              return Text(
+                data.toString(),
+                style: textStyle,
+              );
+            },
+            error: (err, asdf) {
+              return Text(err.toString());
+            },
+            loading: () {
+              return Center(
+                child: const CircularProgressIndicator(),
+              );
+            },
           ),
         ],
       ),
