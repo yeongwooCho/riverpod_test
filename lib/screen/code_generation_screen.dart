@@ -13,6 +13,10 @@ class CodeGenerationScreen extends ConsumerWidget {
     final state1 = ref.watch(gStateProvider);
     final state2 = ref.watch(gStateFutureProvider);
     final state3 = ref.watch(gStateFuture2Provider);
+    final state4 = ref.watch(gStateMultiplyProvider(
+      number1: 3,
+      number2: 4,
+    ));
 
     return DefaultLayout(
       title: 'CodeGenerationScreen',
@@ -61,6 +65,11 @@ class CodeGenerationScreen extends ConsumerWidget {
                 child: const CircularProgressIndicator(),
               );
             },
+          ),
+          const SizedBox(height: 16.0),
+          Text(
+            "state4: $state4",
+            style: textStyle,
           ),
         ],
       ),
