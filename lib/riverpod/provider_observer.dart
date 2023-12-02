@@ -7,4 +7,10 @@ class Logger extends ProviderObserver {
     print(
         '[Provider Updated] provider: $provider / pv: $previousValue / nv: $newValue');
   }
+
+  @override
+  void didAddProvider(
+      ProviderBase provider, Object? value, ProviderContainer container) {
+    print('[Provider Added] provider: $provider / value: $value');
+  }
 }
