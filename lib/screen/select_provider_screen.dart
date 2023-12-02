@@ -11,6 +11,13 @@ class SelectProviderScreen extends ConsumerWidget {
     print('build');
     final state = ref.watch(selectProvider.select((value) => value.isSpicy));
 
+    ref.listen(
+      selectProvider.select((value) => value.hasBought),
+      (previous, next) {
+        print(next);
+      },
+    );
+
     return DefaultLayout(
       title: 'SelectProviderScreen',
       body: SizedBox(
