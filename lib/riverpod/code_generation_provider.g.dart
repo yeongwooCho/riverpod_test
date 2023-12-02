@@ -34,4 +34,19 @@ final gStateFutureProvider = AutoDisposeFutureProvider<int>.internal(
 );
 
 typedef GStateFutureRef = AutoDisposeFutureProviderRef<int>;
+String _$gStateFuture2Hash() => r'7e87666430f62746072d9bc5073c3a11f60ad45c';
+
+/// See also [gStateFuture2].
+@ProviderFor(gStateFuture2)
+final gStateFuture2Provider = FutureProvider<int>.internal(
+  gStateFuture2,
+  name: r'gStateFuture2Provider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$gStateFuture2Hash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GStateFuture2Ref = FutureProviderRef<int>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
