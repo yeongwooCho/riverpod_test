@@ -8,6 +8,8 @@ class CodeGenerationScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print('CodeGenerationScreen build');
+
     const textStyle = TextStyle(fontSize: 24.0);
 
     final state1 = ref.watch(gStateProvider);
@@ -17,7 +19,6 @@ class CodeGenerationScreen extends ConsumerWidget {
       number1: 3,
       number2: 4,
     ));
-    final state5 = ref.watch(gStateNotifierProvider);
 
     return DefaultLayout(
       title: 'CodeGenerationScreen',
@@ -73,12 +74,9 @@ class CodeGenerationScreen extends ConsumerWidget {
             style: textStyle,
           ),
           const SizedBox(height: 16.0),
+          _StateFiveWidget(),
           Row(
             children: [
-              Text(
-                "state5: $state5",
-                style: textStyle,
-              ),
               ElevatedButton(
                 onPressed: () {
                   ref.read(gStateNotifierProvider.notifier).increment();
@@ -104,6 +102,23 @@ class CodeGenerationScreen extends ConsumerWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _StateFiveWidget extends ConsumerWidget {
+  const _StateFiveWidget({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    print('_StateFiveWidget build');
+
+    const textStyle = TextStyle(fontSize: 24.0);
+    final state5 = ref.watch(gStateNotifierProvider);
+
+    return Text(
+      "state5: $state5",
+      style: textStyle,
     );
   }
 }
