@@ -74,7 +74,24 @@ class CodeGenerationScreen extends ConsumerWidget {
             style: textStyle,
           ),
           const SizedBox(height: 16.0),
-          _StateFiveWidget(),
+          // _StateFiveWidget(),
+          Consumer(
+            builder: (BuildContext context, WidgetRef ref, Widget? child) {
+              print('Consumer builder build');
+              final state5 = ref.watch(gStateNotifierProvider);
+
+              return Row(
+                children: [
+                  Text(
+                    "state5: $state5",
+                    style: textStyle,
+                  ),
+                  if (child != null) child,
+                ],
+              );
+            },
+            child: Text('Hello'),
+          ),
           Row(
             children: [
               ElevatedButton(
