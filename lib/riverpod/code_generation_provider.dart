@@ -44,3 +44,20 @@ int gStateMultiply(
 }) {
   return number1 * number2;
 }
+
+// 앞에 명시된 G는 테스트 용도로 명시
+@riverpod
+class GStateNotifier extends _$GStateNotifier {
+  @override
+  int build() {
+    return 0;
+  }
+
+  increment() {
+    state++;
+  }
+
+  decrement() {
+    state--;
+  }
+}
